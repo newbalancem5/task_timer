@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:newba/Message.dart';
 //import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -19,8 +20,8 @@ class _TaskListState extends State<TaskList> {
 var message = const [];
 
 Future loadTaskList() async{
-  var content = await rootBundle.loadString('data/message.json');
-  var collection = json.decode(content);  
+  String content = await rootBundle.loadString('data/message.json');
+  List <Message> collection = json.decode(content);  
   
   setState(() {
    message = collection; 
@@ -64,8 +65,7 @@ void initState() {
         
       ),
       
-      //  floatingActionButton: FloatingActionButton(
-      //    onPressed:  _openAddEntryDialog,
+      //  floatingActionButton: FloatingActionButton(         
       //   tooltip: 'Increment',
       //   child: Icon(Icons.add),
       //   backgroundColor: Colors.redAccent,
