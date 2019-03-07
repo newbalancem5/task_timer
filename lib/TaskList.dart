@@ -18,17 +18,18 @@ class _TaskListState extends State<TaskList> {
 
 var message = const [];
 
-Future loadMessaleList() async{
+Future loadTaskList() async{
   var content = await rootBundle.loadString('data/message.json');
-  var collection = json.decode(content);
-
+  var collection = json.decode(content);  
+  
   setState(() {
    message = collection; 
   });
 }
- void initState(){
-   super.initState();
- }
+void initState() {
+  loadTaskList();
+  super.initState();
+}
 
   Widget build(BuildContext context) {
     return new Scaffold(
