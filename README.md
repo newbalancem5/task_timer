@@ -1,4 +1,4 @@
-# newba
+# Task Timer
 
 A new Flutter project.
 
