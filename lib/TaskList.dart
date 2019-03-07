@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:newba/AddNewTask.dart';
 import 'package:newba/Message.dart';
+import 'package:newba/TaskInfo.dart';
 //import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -17,10 +19,12 @@ class TaskList extends StatefulWidget {
 class _TaskListState extends State<TaskList> {
 
 
-var message = const [];
+List <Message> message = const [];
 
 Future loadTaskList() async{
-  String content = await rootBundle.loadString('data/message.json');
+  http.Response response  = 
+  await http.get('http://www.mocky.io/v2/5c8112d73100003c24771d50');
+  String content = response.body; 
   List collection = json.decode(content); 
   List <Message> _messages = collection.map((json)=>Message.fromJson(json)).toList();
 
@@ -63,6 +67,14 @@ void initState() {
             subtitle: Text(
               messages.body
               ),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => 
+                    TaskInfo(messages.body, messages.subject),),);
+              },
+
 
           );
           return listTile;
@@ -70,11 +82,15 @@ void initState() {
         
       ),
       
-      //  floatingActionButton: FloatingActionButton(         
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      //   backgroundColor: Colors.redAccent,
-      // ),
+       floatingActionButton: FloatingActionButton(  
+         child: Icon(Icons.add),
+        onPressed: (){
+          Navigator.push(context,
+          MaterialPageRoute(builder: (BuildContext context) => AddNewTask()));
+        },       
+        tooltip: 'Increment',
+        backgroundColor: Colors.redAccent,
+      ),
       
       
       
