@@ -21,10 +21,13 @@ var message = const [];
 
 Future loadTaskList() async{
   String content = await rootBundle.loadString('data/message.json');
-  List <Message> collection = json.decode(content);  
+  List collection = json.decode(content); 
+  List <Message> _messages = collection.map((json)=>Message.fromJson(json)).toList();
+
+
   
   setState(() {
-   message = collection; 
+   message = _messages; 
   });
 }
 void initState() {
@@ -48,16 +51,18 @@ void initState() {
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
-          var messages = message[index];
+          Message messages = message[index];
 
 
           var listTile = ListTile(
-            title: Text(messages['subject']),
+            title: Text(messages.subject),
             isThreeLine: true,
             leading: CircleAvatar(
               child: Text('TM'),
             ),
-            subtitle: Text(messages['body']),
+            subtitle: Text(
+              messages.body
+              ),
 
           );
           return listTile;
