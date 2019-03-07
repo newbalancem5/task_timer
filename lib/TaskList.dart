@@ -74,12 +74,9 @@ void initState() {
                     builder: (BuildContext context) => 
                     TaskInfo(messages.body, messages.subject),),);
               },
-
-
           );
           return listTile;
-        }
-        
+        }        
       ),
       
        floatingActionButton: FloatingActionButton(  
