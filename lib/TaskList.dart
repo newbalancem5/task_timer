@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:newba/AddNewTask.dart';
+import 'package:newba/AddButtonTask.dart';
 import 'package:newba/Message.dart';
 import 'package:newba/TaskInfo.dart';
 //import 'NewTask.dart';
@@ -23,7 +23,7 @@ List <Message> message = const [];
 
 Future loadTaskList() async{
   http.Response response  = 
-  await http.get('http://www.mocky.io/v2/5c8112d73100003c24771d50');
+  await http.get('http://www.mocky.io/v2/5c84e67d3300008612f2ba62');
   String content = response.body; 
   List collection = json.decode(content); 
   List <Message> _messages = collection.map((json)=>Message.fromJson(json)).toList();
@@ -72,25 +72,14 @@ void initState() {
                   context,
                   MaterialPageRoute(
                     builder: (BuildContext context) => 
-                    TaskInfo(messages.body, messages.subject),),);
+                    TaskInfo(messages.subject, messages.body),),);
               },
           );
           return listTile;
         }        
       ),
       
-       floatingActionButton: FloatingActionButton(  
-         child: Icon(Icons.add),
-        onPressed: (){
-          Navigator.push(context,
-          MaterialPageRoute(builder: (BuildContext context) => AddNewTask()));
-        },       
-        tooltip: 'Increment',
-        backgroundColor: Colors.redAccent,
-      ),
-      
-      
-      
+       floatingActionButton: AddButtonTask(),
     );
   }
 
