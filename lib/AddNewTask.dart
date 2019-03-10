@@ -6,6 +6,11 @@ _AddNewTaskState createState() => _AddNewTaskState();
 }
 
 class _AddNewTaskState extends State<AddNewTask> {
+  String to = "";
+  String subject = "";
+  String body = "";
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +26,18 @@ class _AddNewTaskState extends State<AddNewTask> {
            children: <Widget>[
              ListTile(
                title:TextField(
+                 onChanged: (value){
+                   body =value;
+                 },
                decoration: InputDecoration(
                  labelText: "Название задания"
                ),
              ),
              ),
              ListTile(title: TextField(
+               onChanged: (value){
+                 subject =value;
+               },
                 decoration: InputDecoration(
                   labelText: "Цель задания"
                 ),
