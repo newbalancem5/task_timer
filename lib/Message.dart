@@ -1,3 +1,5 @@
+// import 'package:';
+// @JsonSerializable()
 class Message {
    final String subject;
    final String body;

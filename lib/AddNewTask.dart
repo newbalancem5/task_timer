@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newba/Message.dart';
 
 class AddNewTask extends StatefulWidget {
 @override
@@ -27,7 +28,7 @@ class _AddNewTaskState extends State<AddNewTask> {
              ListTile(
                title:TextField(
                  onChanged: (value){
-                   body =value;
+                   body = value;
                  },
                decoration: InputDecoration(
                  labelText: "Название задания"
@@ -36,7 +37,7 @@ class _AddNewTaskState extends State<AddNewTask> {
              ),
              ListTile(title: TextField(
                onChanged: (value){
-                 subject =value;
+                 subject = value;
                },
                 decoration: InputDecoration(
                   labelText: "Цель задания"
@@ -44,6 +45,9 @@ class _AddNewTaskState extends State<AddNewTask> {
               ),
               ),
               ListTile(title:TextField(
+                onChanged: (value){
+                  to = value;
+                },
                 decoration: InputDecoration(
                   labelText: "BODY",
                 ),
@@ -53,7 +57,10 @@ class _AddNewTaskState extends State<AddNewTask> {
               ListTile(
                 title: RaisedButton(
                   child: Text('Добавить новую задачу'),
-                  onPressed: (){},
+                  onPressed: (){
+                    Message message = Message(subject,body);
+                    Navigator.pop(context , message);
+                  },
                 ),
               ),
            ],

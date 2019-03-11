@@ -18,8 +18,10 @@ class TaskList extends StatefulWidget {
 
 class _TaskListState extends State<TaskList> {
 
+Future<List<Message>> future;
+List<Message> message;
 
-List <Message> message = const [];
+
 
 Future loadTaskList() async{
   http.Response response  = 
@@ -37,7 +39,12 @@ Future loadTaskList() async{
 void initState() {
   loadTaskList();
   super.initState();
+  fetch();
 }
+ void fetch() async {
+    // future = Message.browse();
+    message = await future;
+  }
 
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -47,11 +54,23 @@ void initState() {
         fontFamily: "Nexa"
         ),
         ),
+        // actions: <Widget>[
+        //   IconButton(
+        //       icon: Icon(Icons.refresh),
+        //       onPressed: () async {
+        //         var _messages = await Message.browse();
+
+        //         setState(() {
+        //           messages = _messages;
+        //         });
+        //       })
+        // ],
         centerTitle :true,        
         backgroundColor: Colors.transparent, 
         elevation: 0.0,        
       ),      
       body: ListView.separated(
+        // future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
