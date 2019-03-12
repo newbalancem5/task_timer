@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:newba/AddButtonTask.dart';
+//import 'package:newba/AddButtonTask.dart';
 import 'package:newba/Message.dart';
 import 'package:newba/TaskInfo.dart';
 //import 'NewTask.dart';
@@ -15,36 +13,23 @@ class TaskList extends StatefulWidget {
   @override
   _TaskListState createState() => new _TaskListState();
 }
-
 class _TaskListState extends State<TaskList> {
 
-Future<List<Message>> future;
-List<Message> message;
+Future<List<Message>> message;
+// List<Message> message;
 
+bool isLoading =true;
 
-
-Future loadTaskList() async{
-  http.Response response  = 
-  await http.get('http://www.mocky.io/v2/5c84e67d3300008612f2ba62');
-  String content = response.body; 
-  List collection = json.decode(content); 
-  List <Message> _messages = collection.map((json)=>Message.fromJson(json)).toList();
-
-
-  
-  setState(() {
-   message = _messages; 
-  });
-}
 void initState() {
-  loadTaskList();
+  // loadTaskList();
   super.initState();
-  fetch();
+  // fetch();
+  message =Message.browse();
 }
- void fetch() async {
-    // future = Message.browse();
-    message = await future;
-  }
+//  void fetch() async {
+//     future = Message.browse();
+//     message = await future;
+//   }
 
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -54,22 +39,33 @@ void initState() {
         fontFamily: "Nexa"
         ),
         ),
-        // actions: <Widget>[
-        //   IconButton(
-        //       icon: Icon(Icons.refresh),
-        //       onPressed: () async {
-        //         var _messages = await Message.browse();
 
-        //         setState(() {
-        //           messages = _messages;
-        //         });
-        //       })
-        // ],
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: () async {
+                var _messages = await Message.browse();
+
+                setState(() {
+                  message = _messages;
+                });
+              })
+        ],
         centerTitle :true,        
         backgroundColor: Colors.transparent, 
         elevation: 0.0,        
       ),      
-      body: ListView.separated(
+      body: FutureBuilder(
+        future: message,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          switch(snapshot.connectionState){
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+            case ConnectionState.active:
+              return Center(child:  CircularProgressIndicator());
+            case ConnectionState.done:
+            var message =snapshot.data;
+            return ListView.separated(
         // future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
@@ -95,11 +91,9 @@ void initState() {
               },
           );
           return listTile;
-        }        
-      ),
-      
-       floatingActionButton: AddButtonTask(),
-    );
+            },);
+        }
+        })        
+      );
   }
-
-}
+  }
