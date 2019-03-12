@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:newba/AddButtonTask.dart';
+import 'package:newba/AddButtonTask.dart';
 import 'package:newba/Message.dart';
 import 'package:newba/TaskInfo.dart';
 //import 'NewTask.dart';
@@ -41,15 +41,14 @@ void initState() {
         ),
 
         actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.refresh),
-              onPressed: () async {
-                var _messages = await Message.browse();
+          IconButton(icon: Icon(Icons.refresh),
+          onPressed: (){
+            var _message =Message.browse();
 
-                setState(() {
-                  message = _messages;
-                });
-              })
+            setState(() {
+             message = _message; 
+            });
+          },)
         ],
         centerTitle :true,        
         backgroundColor: Colors.transparent, 
@@ -64,6 +63,7 @@ void initState() {
             case ConnectionState.active:
               return Center(child:  CircularProgressIndicator());
             case ConnectionState.done:
+            if(snapshot.hasError) return Text("Ой что-то пошло не так");
             var message =snapshot.data;
             return ListView.separated(
         // future = message,
@@ -93,7 +93,12 @@ void initState() {
           return listTile;
             },);
         }
-        })        
-      );
+        }),
+          floatingActionButton: AddButtonTask(),
+          );
+
+      
+        // floatingActionButton: ComposeButton(messages)
+      // FloatingActionButton( onPressed: (){},);
   }
   }
