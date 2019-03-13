@@ -91,14 +91,12 @@ void initState() {
               },
           );
           return listTile;
+          
             },);
-        }
+            
+          }
         }),
           floatingActionButton: AddButtonTask(),
           );
-
-      
-        // floatingActionButton: ComposeButton(messages)
-      // FloatingActionButton( onPressed: (){},);
   }
   }

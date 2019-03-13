@@ -9,8 +9,6 @@ part 'Message.g.dart';
 class Message {
    final String subject;
    final String body;
-
-
    
 
    Message(this.subject, this.body);
@@ -29,7 +27,6 @@ class Message {
   List collection = json.decode(content); 
   List <Message> _messages = 
       collection.map((json)=>Message.fromJson(json)).toList();
-
   return _messages;
      }  
 }
