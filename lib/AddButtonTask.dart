@@ -3,6 +3,8 @@ import 'package:newba/AddNewTask.dart';
 import 'package:newba/Message.dart';
 
 class AddButtonTask extends StatelessWidget {
+  AddButtonTask(List<Message> message);
+
   @override
   Widget build(BuildContext context) {
     return  FloatingActionButton(  

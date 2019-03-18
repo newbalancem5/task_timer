@@ -15,21 +15,20 @@ class TaskList extends StatefulWidget {
 }
 class _TaskListState extends State<TaskList> {
 
-Future<List<Message>> message;
-// List<Message> message;
+Future<List<Message>> future;
+List<Message> message;
 
 bool isLoading =true;
 
 void initState() {
   // loadTaskList();
   super.initState();
-  // fetch();
-  message =Message.browse();
+  fetch();
 }
-//  void fetch() async {
-//     future = Message.browse();
-//     message = await future;
-//   }
+ void fetch() async {
+    future = Message.browse();
+    message = await future;
+  }
 
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -42,8 +41,8 @@ void initState() {
 
         actions: <Widget>[
           IconButton(icon: Icon(Icons.refresh),
-          onPressed: (){
-            var _message =Message.browse();
+          onPressed: () async {
+            var _message = await Message.browse();
 
             setState(() {
              message = _message; 
@@ -55,7 +54,7 @@ void initState() {
         elevation: 0.0,        
       ),      
       body: FutureBuilder(
-        future: message,
+        future: future,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           switch(snapshot.connectionState){
             case ConnectionState.none:
@@ -66,7 +65,7 @@ void initState() {
             if(snapshot.hasError) return Text("Ой что-то пошло не так");
             var message =snapshot.data;
             return ListView.separated(
-        // future = message,
+        future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
@@ -96,7 +95,7 @@ void initState() {
             
           }
         }),
-          floatingActionButton: AddButtonTask(),
+          floatingActionButton: AddButtonTask(message),
           );
   }
   }
