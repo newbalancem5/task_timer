@@ -20,8 +20,12 @@ class _AddNewTaskState extends State<AddNewTask> {
       style:TextStyle(color: Colors.redAccent),),
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      elevation: 0.0,),
-
+      elevation: 0.0,
+      // leading: Icon(
+      //   Icons.arrow_back,
+      //   color: Colors.red,
+      // ),
+      ),
        body: Column(
          crossAxisAlignment: CrossAxisAlignment.start,           
            children: <Widget>[
@@ -55,8 +59,17 @@ class _AddNewTaskState extends State<AddNewTask> {
               ),
               ),
               ListTile(
-                title: RaisedButton(
-                  child: Text('Добавить новую задачу'),
+                title: MaterialButton(
+                  color: Colors.blue,
+                  padding: EdgeInsets.symmetric(
+                    
+                  ),
+                  
+                  child: Text('Добавить новую задачу',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color : Colors.white,
+                  )),
                   onPressed: (){
                     Message message = Message(subject,body);
                     Navigator.pop(context , message);

@@ -10,5 +10,5 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
   return Message(json['subject'] as String, json['body'] as String);
 }
 
-Map<String, dynamic> _$MessageToJson(Message instance) =>
-    <String, dynamic>{'subject': instance.subject, 'body': instance.body};
+// Map<String, dynamic> _$MessageToJson(Message instance) =>
+//     <String, dynamic>{'subject': instance.subject, 'body': instance.body};

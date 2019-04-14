@@ -29,7 +29,6 @@ void initState() {
     future = Message.browse();
     message = await future;
   }
-
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -38,16 +37,16 @@ void initState() {
         fontFamily: "Nexa"
         ),
         ),
-
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.refresh),
+          IconButton(icon: Icon(Icons.refresh,),
+          
           onPressed: () async {
             var _message = await Message.browse();
-
             setState(() {
              message = _message; 
             });
-          },)
+          },
+          color: Colors.black, )
         ],
         centerTitle :true,        
         backgroundColor: Colors.transparent, 
@@ -65,18 +64,16 @@ void initState() {
             if(snapshot.hasError) return Text("Ой что-то пошло не так");
             var message =snapshot.data;
             return ListView.separated(
-        future = message,
+        // future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
           Message messages = message[index];
-
-
           var listTile = ListTile(
             title: Text(messages.subject),
             isThreeLine: true,
             leading: CircleAvatar(
-              child: Text('TM'),
+              child: Text('AM'),
             ),
             subtitle: Text(
               messages.body
@@ -90,9 +87,7 @@ void initState() {
               },
           );
           return listTile;
-          
             },);
-            
           }
         }),
           floatingActionButton: AddButtonTask(message),

@@ -19,7 +19,7 @@ class AddButtonTask extends StatelessWidget {
           if (message != null){
             Scaffold.of(context).showSnackBar(
               SnackBar(
-                content: Text("Оно отправленно"),
+                content: Text("Задание ${message.body} отправленно"),
                 backgroundColor: Colors.green,
               ),
             );
