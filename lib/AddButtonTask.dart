@@ -3,24 +3,29 @@ import 'package:newba/AddNewTask.dart';
 import 'package:newba/Message.dart';
 
 class AddButtonTask extends StatelessWidget {
-  AddButtonTask(List<Message> message);
+ final   List<Message> message;
+   AddButtonTask(this.message);
+
 
   @override
   Widget build(BuildContext context) {
     return  FloatingActionButton(  
          child: Icon(Icons.add),
         onPressed: () async {
-          Message message = await Navigator.push(
+          Message messages = await Navigator.push(
             context,
             MaterialPageRoute(
               builder: (BuildContext context) => AddNewTask(),              
             ),
           );
-          if (message != null){
+          
+          if (message != null) {
+          message.add(messages);
+          
             Scaffold.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Задание ${message.body} отправленно"),
-                backgroundColor: Colors.green,
+            SnackBar(
+              content: Text("Your message has been sent"),
+              backgroundColor: Colors.green,
               ),
             );
           }

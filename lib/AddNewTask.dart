@@ -60,15 +60,12 @@ class _AddNewTaskState extends State<AddNewTask> {
               ),
               ListTile(
                 title: MaterialButton(
-                  color: Colors.blue,
-                  padding: EdgeInsets.symmetric(
-                    
-                  ),
-                  
-                  child: Text('Добавить новую задачу',
+                  color: Colors.blue,                  
+                  child:  Text('Добавить новую задачу',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     color : Colors.white,
+                    fontSize: 15,
                   )),
                   onPressed: (){
                     Message message = Message(subject,body);
