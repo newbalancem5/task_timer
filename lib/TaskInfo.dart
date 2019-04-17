@@ -12,15 +12,22 @@ TaskInfo(this.title, this.body);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(this.title, 
-      style: TextStyle(color: Colors.redAccent),),      
+      appBar: AppBar(title: Text(this.title,
+      style: TextStyle(color: Colors.redAccent,),),
+      centerTitle: true,      
       backgroundColor: Colors.transparent,
-      elevation: 0.0,),
-      body:   Container(
+      elevation: 0.3,),
+      body:   Container(   
         padding: EdgeInsets.all(16),        
-      child: Text(this.body),          
-    ),
-    );
+      child:
+      Text(this.body,
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Colors.black,
+      fontSize: 20,),
+      ),
+          ),
+    backgroundColor: Colors.white,
+     );
     
    
   }
