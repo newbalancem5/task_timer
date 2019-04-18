@@ -9,9 +9,9 @@ import 'dart:math' as math;
   
   class _TaskTimerState extends State<TaskTimer> {
 
-    _currentTime(){
-    return "${DateTime.now().hour} : ${DateTime.now().minute}";
-  }
+  //   _currentTime(){
+  //   return "${DateTime.now().hour} : ${DateTime.now().minute}";
+  // }
 
 
     @override
@@ -19,6 +19,8 @@ import 'dart:math' as math;
       return Scaffold(
         appBar: AppBar(
           title: Center(child: Text("TimeTasker"),),
+          backgroundColor: Colors.deepOrange,
+          elevation: 0.0,
         ),
         
       );
