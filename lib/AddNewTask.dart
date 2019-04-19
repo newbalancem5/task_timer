@@ -10,6 +10,7 @@ class _AddNewTaskState extends State<AddNewTask> {
   String to = "";
   String subject = "";
   String body = "";
+  String timertime = "";
 
   final key = GlobalKey<FormState>();
 
@@ -32,7 +33,7 @@ class _AddNewTaskState extends State<AddNewTask> {
          child: Form(
            key: key,
            child: Column(
-         crossAxisAlignment: CrossAxisAlignment.start,           
+         crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
              ListTile(
                title:TextFormField(
@@ -52,27 +53,61 @@ class _AddNewTaskState extends State<AddNewTask> {
               ListTile(title:TextFormField(
                 onSaved: (value) => to = value,
                 decoration: InputDecoration(
-                  labelText: "Other",
+                  labelText: "Дополнение",
                 ),
                 maxLength: 8,
               ),
               ),
-              ListTile(
-                title: MaterialButton(
-                  color: Colors.blue,                  
-                  child:  Text('Добавить новую задачу',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color : Colors.white,
-                    fontSize: 15,
-                  )),
-                  onPressed: (){
+                            ListTile(
+                title: TextFormField(
+                     onSaved: (value) => timertime = value,
+                decoration: InputDecoration(
+                  labelText: "Выберите время таймера"
+                ),
+                ),
+              ),
+               Padding(                
+                padding: EdgeInsets.symmetric(vertical : 16.0),
+                child: Material(
+                  borderRadius: BorderRadius.circular(40.0),
+                  shadowColor: Colors.red,
+                  elevation: 6.0,
+                  color: Colors.red,
+                  child: MaterialButton(
+                    
+                    minWidth: 220.0,
+                    height: 50.0,
+                            onPressed: (){
                     this.key.currentState.save();
                     Message message = Message(subject,body);
                     Navigator.pop(context , message);
                   },
+                  child: Text('Добавить задачу',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  ),
+                  ),
+                  ),
                 ),
               ),
+              // ListTile(
+              //   child: Material(
+              //   child: MaterialButton(
+              //     color: Colors.black,  
+              //     minWidth: 400.0,
+              //     height: 42.0,                
+              //     child:  Text('Добавить новую задачу',
+              //     textAlign: TextAlign.left,
+              //     style: TextStyle(
+              //       color : Colors.white,
+              //       fontSize: 18,
+              //     )),
+          
+              //   ),
+              // ),
+              // ),
            ],
            ),
        ), 
