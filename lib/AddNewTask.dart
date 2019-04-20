@@ -31,7 +31,7 @@ class _AddNewTaskState extends State<AddNewTask> {
       ),
        body: SingleChildScrollView(
          child: Form(
-           key: key,
+         
            child: Column(
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
@@ -66,6 +66,27 @@ class _AddNewTaskState extends State<AddNewTask> {
                 ),
                 ),
               ),
+              Container(
+                child: Material(
+                  borderRadius: BorderRadius.circular(40.0),
+                  shadowColor: Colors.pinkAccent,
+                  elevation: 9.0,
+                  color: Colors.pinkAccent,
+                  child: MaterialButton(
+                    minWidth:240.0,
+                    height: 50.0,
+                    onPressed: (){
+                      _bottomSheedPressed();
+                    },
+                    child: Text('Добавить таймер',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 17),
+                    ),
+                  ),
+                ),
+              ),
                Padding(                
                 padding: EdgeInsets.symmetric(vertical : 16.0),
                 child: Material(
@@ -73,8 +94,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                   shadowColor: Colors.red,
                   elevation: 6.0,
                   color: Colors.red,
-                  child: MaterialButton(
-                    
+                  child: MaterialButton(                    
                     minWidth: 220.0,
                     height: 50.0,
                             onPressed: (){
@@ -114,4 +134,28 @@ class _AddNewTaskState extends State<AddNewTask> {
         ),
     );
   }
+
+   _bottomSheedPressed(){
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+         Column(
+           
+          children: <Widget>[
+            // child: Material(
+            //   BorderRadius.circular(50.0)
+            // )
+            
+            
+          ListTile(
+            leading:Icon(Icons.timer),
+            title: Text('Задать таймер'),
+            // onTap: ()=> _selectItem('people'),
+          ),
+        ],
+        );
+      }
+    );
+  }
 }
+
