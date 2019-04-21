@@ -31,6 +31,7 @@ void initState() {
   }
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Colors.white,
       appBar: new AppBar(
         title: new Text('Задачи',
         style:TextStyle(color: Colors.red,
@@ -38,8 +39,7 @@ void initState() {
         ),
         ),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.refresh,),
-          
+          IconButton(icon: Icon(Icons.refresh,),          
           onPressed: () async {
             var _message = await Message.browse();
             setState(() {
@@ -69,14 +69,18 @@ void initState() {
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
           Message messages = message[index];
-          var listTile = ListTile(
+          var listTile = ListTile(            
             title: Text(messages.subject),
-            isThreeLine: true,
+            isThreeLine: true,            
             leading: CircleAvatar(
               child: Text('AM'),
+              backgroundColor: Colors.pinkAccent,
             ),
             subtitle: Text(
-              messages.body
+              messages.body,
+              style: TextStyle(
+                color: Colors.black,
+              ),
               ),
               onTap: (){
                 Navigator.push(

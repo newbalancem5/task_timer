@@ -16,7 +16,7 @@ TaskInfo(this.title, this.body);
       style: TextStyle(color: Colors.redAccent,),),
       centerTitle: true,      
       backgroundColor: Colors.transparent,
-      elevation: 0.3,),
+      elevation: 0.2,),
       body:   Container(   
         padding: EdgeInsets.all(16),        
       child:

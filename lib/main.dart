@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'TaskList.dart';
-import 'package:newba/TaskList.dart';
+import 'package:newba/TaskList/TaskList.dart';
 // import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -10,6 +9,7 @@ void main() {
 
 class Application extends StatefulWidget {
   @override
+  
   _ApplicationState createState() => new _ApplicationState();
   }
 
@@ -18,6 +18,9 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     
     return MaterialApp(
+      theme: ThemeData(
+        canvasColor: Colors.transparent
+      ),
       title: 'Задачи',
       home: TaskList(),
     );

@@ -15,23 +15,21 @@ class _AddNewTaskState extends State<AddNewTask> {
   final key = GlobalKey<FormState>();
 
 
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
+      backgroundColor: Colors.white,     
       appBar: AppBar(
        title:Text("Создание новой задачи",
       style:TextStyle(color: Colors.redAccent),),
       centerTitle: true,
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      // leading: Icon(
-      //   Icons.arrow_back,
-      //   color: Colors.red,
-      // ),
       ),
-       body: SingleChildScrollView(
-         child: Form(
-         
+       body: 
+       SingleChildScrollView(         
+         child: Form(        
            child: Column(
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
@@ -112,6 +110,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                   ),
                 ),
               ),
+              
               // ListTile(
               //   child: Material(
               //   child: MaterialButton(
@@ -135,27 +134,39 @@ class _AddNewTaskState extends State<AddNewTask> {
     );
   }
 
-   _bottomSheedPressed(){
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-         Column(
-           
-          children: <Widget>[
-            // child: Material(
-            //   BorderRadius.circular(50.0)
-            // )
-            
-            
-          ListTile(
-            leading:Icon(Icons.timer),
-            title: Text('Задать таймер'),
-            // onTap: ()=> _selectItem('people'),
-          ),
-        ],
-        );
-      }
-    );
-  }
+    _bottomSheedPressed(){
+      
+   showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {      
+    return Container(
+            decoration: BoxDecoration(
+              color: Colors.greenAccent,              
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(40)                
+              )
+            ),
+            height: 300, 
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('ModalBottomSheet'),
+                  Material(
+                    borderRadius: BorderRadius.circular(40.0),
+                    shadowColor: Colors.red,
+                    elevation: 6.0,
+                    color: Colors.red,
+                    child: MaterialButton(                    
+                      child: Text('добавить время',
+                      style:TextStyle(
+                        color: Colors.white
+                      ) ,),
+                      onPressed: (){},
+                    ),
+                  )
+                ],
+            ),
+          );
+   });
 }
-
+  }
