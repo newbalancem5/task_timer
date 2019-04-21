@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newba/AddNewTask.dart';
-import 'package:newba/Message.dart';
+import 'package:newba/Task/AddNewTask.dart';
+import 'package:newba/Message/Message.dart';
 
 class AddButtonTask extends StatelessWidget {
  final   List<Message> message;

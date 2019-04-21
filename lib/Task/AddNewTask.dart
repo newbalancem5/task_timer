@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newba/Message.dart';
+import 'package:newba/Message/Message.dart';
 
 class AddNewTask extends StatefulWidget {
 @override
@@ -11,9 +11,20 @@ class _AddNewTaskState extends State<AddNewTask> {
   String subject = "";
   String body = "";
   String timertime = "";
+  int _counter = 0;
 
   final key = GlobalKey<FormState>();
-
+ 
+ void _addTime(){
+   setState(() {
+    _counter++; 
+   });
+ }
+ void _deleteTime(){
+   setState(() {
+    _counter--; 
+   });
+ }
 
 
   @override
@@ -110,23 +121,6 @@ class _AddNewTaskState extends State<AddNewTask> {
                   ),
                 ),
               ),
-              
-              // ListTile(
-              //   child: Material(
-              //   child: MaterialButton(
-              //     color: Colors.black,  
-              //     minWidth: 400.0,
-              //     height: 42.0,                
-              //     child:  Text('Добавить новую задачу',
-              //     textAlign: TextAlign.left,
-              //     style: TextStyle(
-              //       color : Colors.white,
-              //       fontSize: 18,
-              //     )),
-          
-              //   ),
-              // ),
-              // ),
            ],
            ),
        ), 
@@ -150,12 +144,32 @@ class _AddNewTaskState extends State<AddNewTask> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('ModalBottomSheet'),
+                  
+                  Container(
+                    child: Container(
+                      child: IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: (){
+                          _addTime();
+                        },
+                      ),                      
+                    ),
+                   ),
+                   Container(
+                     child: Text('Количество $_counter минут'),
+
+                   ),
+                   Container(child: IconButton(
+                   icon: Icon(Icons.minimize),
+                   onPressed: (){
+                     _deleteTime();
+                   },)),
                   Material(
                     borderRadius: BorderRadius.circular(40.0),
                     shadowColor: Colors.red,
                     elevation: 6.0,
                     color: Colors.red,
+                  
                     child: MaterialButton(                    
                       child: Text('добавить время',
                       style:TextStyle(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:newba/AddButtonTask.dart';
-import 'package:newba/Message.dart';
-import 'package:newba/TaskInfo.dart';
+import 'package:newba/Task/AddButtonTask.dart';
+import 'package:newba/Message/Message.dart';
+import 'package:newba/Task/TaskInfo.dart';
 //import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
