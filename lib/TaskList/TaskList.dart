@@ -52,7 +52,9 @@ void initState() {
         backgroundColor: Colors.transparent, 
         elevation: 0.0,        
       ),      
-      body: FutureBuilder(
+      body:
+      
+       FutureBuilder(
         future: future,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           switch(snapshot.connectionState){
@@ -61,15 +63,28 @@ void initState() {
             case ConnectionState.active:
               return Center(child:  CircularProgressIndicator());
             case ConnectionState.done:
-            if(snapshot.hasError) return Text("Ой что-то пошло не так");
+            if(snapshot.hasError) return 
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  child:
+                  Image.asset("duck.png"),                  
+                ),
+                Container(
+                  child: Text('Упс......'),
+                )
+              ],
+            );
             var message =snapshot.data;
             return ListView.separated(
         // future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
+          
           Message messages = message[index];
-          var listTile = ListTile(            
+          var listTile = ListTile(
             title: Text(messages.subject),
             isThreeLine: true,            
             leading: CircleAvatar(

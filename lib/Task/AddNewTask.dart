@@ -15,16 +15,16 @@ class _AddNewTaskState extends State<AddNewTask> {
 
   final key = GlobalKey<FormState>();
  
- void _addTime(){
-   setState(() {
-    _counter++; 
-   });
- }
- void _deleteTime(){
-   setState(() {
-    _counter--; 
-   });
- }
+//  void _addTime(){
+//    setState(() {
+//     _counter++; 
+//    });
+//  }
+//  void _deleteTime(){
+//    setState(() {
+//     _counter--; 
+//    });
+//  }
 
 
   @override
@@ -36,7 +36,7 @@ class _AddNewTaskState extends State<AddNewTask> {
       style:TextStyle(color: Colors.redAccent),),
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      elevation: 0.0,
+      elevation: 0.4,
       ),
        body: 
        SingleChildScrollView(         
@@ -71,7 +71,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                 title: TextFormField(
                      onSaved: (value) => timertime = value,
                 decoration: InputDecoration(
-                  labelText: "Выберите время таймера"
+                  labelText: "Выберите время таймера $_counter"
                 ),
                 ),
               ),
@@ -135,35 +135,26 @@ class _AddNewTaskState extends State<AddNewTask> {
     builder: (BuildContext context) {      
     return Container(
             decoration: BoxDecoration(
-              color: Colors.greenAccent,              
+              color: Colors.white,              
               borderRadius: BorderRadius.vertical(
-                top: Radius.circular(40)                
+                top: Radius.circular(45)                
               )
             ),
             height: 300, 
-            child: Column(
+            
+            child: Column(                            
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  
                   Container(
-                    child: Container(
-                      child: IconButton(
-                        icon: Icon(Icons.add),
-                        onPressed: (){
-                          _addTime();
-                        },
-                      ),                      
-                    ),
-                   ),
-                   Container(
-                     child: Text('Количество $_counter минут'),
-
-                   ),
-                   Container(child: IconButton(
-                   icon: Icon(Icons.minimize),
-                   onPressed: (){
-                     _deleteTime();
-                   },)),
+                     padding: EdgeInsets.only(left: 16, right: 16, bottom: 180),
+                     child: Title(
+                       child: Text('Выберите время для задачи',
+                    style: TextStyle(
+                      fontSize: 25,
+                    ),),
+                    color: Colors.black,
+                     ),
+                  ),
                   Material(
                     borderRadius: BorderRadius.circular(40.0),
                     shadowColor: Colors.red,

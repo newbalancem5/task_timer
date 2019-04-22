@@ -23,7 +23,7 @@ TaskInfo(this.title, this.body);
       Text(this.body,
       textAlign: TextAlign.center,
       style: TextStyle(color: Colors.black,
-      fontSize: 20,),
+      fontSize: 30,),
       ),
           ),
     backgroundColor: Colors.white,
