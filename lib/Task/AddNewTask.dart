@@ -44,6 +44,8 @@ class _AddNewTaskState extends State<AddNewTask> {
            child: Column(
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
+            
+                 
              ListTile(
                title:TextFormField(
                  onSaved: (value) => subject = value,
@@ -52,6 +54,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                ),
              ),
              ),
+             
              ListTile(title: TextFormField(
                onSaved: (value) => body = value,
                 decoration: InputDecoration(
@@ -59,6 +62,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                 ),
               ),
               ),
+              
               ListTile(title:TextFormField(
                 onSaved: (value) => to = value,
                 decoration: InputDecoration(
@@ -140,8 +144,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                 top: Radius.circular(45)                
               )
             ),
-            height: 300, 
-            
+            height: 300,             
             child: Column(                            
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

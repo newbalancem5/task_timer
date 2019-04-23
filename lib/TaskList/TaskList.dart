@@ -69,7 +69,7 @@ void initState() {
               children: <Widget>[
                 Container(
                   child:
-                  Image.asset("duck.png"),                  
+                  Image.asset('lib/img/duck.png'),                  
                 ),
                 Container(
                   child: Text('Упс......'),
@@ -84,11 +84,18 @@ void initState() {
         itemBuilder: (BuildContext context, int index ){
           
           Message messages = message[index];
-          var listTile = ListTile(
+          var listTile = ListTile(   
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 10.0,
+              vertical: 1.0,              
+            ),   
             title: Text(messages.subject),
             isThreeLine: true,            
             leading: CircleAvatar(
-              child: Text('AM'),
+              child: Text('AM',
+              style: TextStyle(
+                color: Colors.white
+              ),),
               backgroundColor: Colors.pinkAccent,
             ),
             subtitle: Text(

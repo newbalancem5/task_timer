@@ -21,7 +21,7 @@ class Message {
   http.Response response  = 
     await http.get('http://www.mocky.io/v2/5c84e67d3300008612f2ba62');
  
-  await Future.delayed(Duration(seconds: 3));
+  await Future.delayed(Duration(seconds: 2));
  
   String content = response.body; 
   List collection = json.decode(content); 
