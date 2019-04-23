@@ -78,41 +78,83 @@ void initState() {
             );
             var message =snapshot.data;
             return ListView.separated(
+              padding: EdgeInsets.only(top: 10,bottom: 10,right: 5,left: 5),
         // future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (BuildContext context, int index ){
-          
           Message messages = message[index];
-          var listTile = ListTile(   
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 10.0,
-              vertical: 1.0,              
-            ),   
-            title: Text(messages.subject),
-            isThreeLine: true,            
-            leading: CircleAvatar(
-              child: Text('AM',
-              style: TextStyle(
-                color: Colors.white
-              ),),
-              backgroundColor: Colors.pinkAccent,
-            ),
-            subtitle: Text(
-              messages.body,
-              style: TextStyle(
+          return Container(
+            padding: EdgeInsets.only(top: 10,),
+            decoration: BoxDecoration(
+              border: Border.all(
                 color: Colors.black,
+                width: 3.0,
               ),
-              ),
-              onTap: (){
+              color: Colors.cyan[100],
+              borderRadius: BorderRadius.circular(30)
+
+            ),
+            child: ListTile(
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        leading: Container(
+          padding: EdgeInsets.only(right: 12.0),
+          decoration: new BoxDecoration(
+              border: new Border(
+                  right: new BorderSide(width: 1.0, color: Colors.black))),
+          child: Icon(Icons.autorenew, color: Colors.pink),
+        ),
+        title: Text(
+          messages.subject,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+        subtitle: Row(
+          children: <Widget>[
+            Icon(Icons.linear_scale, color: Colors.yellowAccent),
+            Text(messages.body, style: TextStyle(color: Colors.black))
+          ],
+        ),
+         onTap: (){
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (BuildContext context) => 
                     TaskInfo(messages.subject, messages.body),),);
               },
-          );
-          return listTile;
+        trailing:
+Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0)),
+          );        
+        //  ListTile(   
+        //     contentPadding: EdgeInsets.symmetric(
+        //       horizontal: 10.0,
+        //       vertical: 1.0,              
+        //     ),   
+        //     title: Text(messages.subject),
+        //     isThreeLine: true,            
+        //     leading: CircleAvatar(
+        //       child: Text('AM',
+        //       style: TextStyle(
+        //         color: Colors.white
+        //       ),),
+        //       backgroundColor: Colors.pinkAccent,
+        //     ),
+        //     subtitle: Text(
+        //       messages.body,
+        //       style: TextStyle(
+        //         color: Colors.black,
+        //       ),
+        //       ),
+        //       onTap: (){
+        //         Navigator.push(
+        //           context,
+        //           MaterialPageRoute(
+        //             builder: (BuildContext context) => 
+        //             TaskInfo(messages.subject, messages.body),),);
+        //       },
+        //   );
+        //   return listTile;
             },);
           }
         }),
