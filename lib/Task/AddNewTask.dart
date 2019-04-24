@@ -11,7 +11,7 @@ class _AddNewTaskState extends State<AddNewTask> {
   String subject = "";
   String body = "";
   String timertime = "";
-  int _counter = 0;
+  // int _counter = 0;
 
   final key = GlobalKey<FormState>();
  
@@ -39,49 +39,74 @@ class _AddNewTaskState extends State<AddNewTask> {
       elevation: 0.4,
       ),
        body: 
-       SingleChildScrollView(         
+       SingleChildScrollView( 
+         padding: EdgeInsets.only(top: 100),        
          child: Form(        
-           child: Column(
+           child: Column(            
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
-            
-                 
-             ListTile(
-               title:TextFormField(
-                 onSaved: (value) => subject = value,
-               decoration: InputDecoration(
-                 labelText: "Название задания"
-               ),
+             Padding(                
+               padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+               child: Material(
+                    elevation: 11.0,
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Colors.white,
+                    shadowColor: Colors.black,
+                    child: TextFormField(
+                      onSaved: (value) => subject = value,
+                      cursorColor: Colors.red,
+                      decoration: 
+                      InputDecoration(                        
+                        labelText: 'Имя задания',
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                        border: InputBorder.none
+                        
+                      ),
+                    ),
+                ),   
+                ),          
+             Padding( 
+             padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+                    child:  Material(
+                    elevation: 15.0,
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Colors.white,
+                    shadowColor: Colors.black,
+                    child: TextFormField(
+                      onSaved: (value) => body = value,
+                      cursorColor: Colors.red,
+                      decoration: 
+                      InputDecoration(
+                        labelText: 'Цель Задания',
+                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                        border: InputBorder.none
+                      ),
+                    ),
+                ),
              ),
-             ),
-             
-             ListTile(title: TextFormField(
-               onSaved: (value) => body = value,
-                decoration: InputDecoration(
-                  labelText: "Цель задания"
-                ),
-              ),
-              ),
-              
-              ListTile(title:TextFormField(
-                onSaved: (value) => to = value,
-                decoration: InputDecoration(
-                  labelText: "Дополнение",
-                ),
-                maxLength: 8,
-              ),
-              ),
-                            ListTile(
-                title: TextFormField(
-                     onSaved: (value) => timertime = value,
-                decoration: InputDecoration(
-                  labelText: "Выберите время таймера $_counter"
-                ),
-                ),
-              ),
-              Container(
-                child: Material(
-                  borderRadius: BorderRadius.circular(40.0),
+               Padding( 
+               padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+                child:  Material(
+                    elevation: 15.0,
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Colors.white,
+                    shadowColor: Colors.black,
+                    child: TextFormField(
+                      onSaved: (value) => to = value,
+                      cursorColor: Colors.red,
+                      decoration: 
+                      InputDecoration(
+                        labelText: 'Дополнение к заданию',
+                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                        border: InputBorder.none
+                      ),
+                    ),
+                ),),
+               Padding( 
+               padding: EdgeInsets.only(top: 100,),
+               
+                child:  Material(
+                  borderRadius: BorderRadius.circular(100.0),
                   shadowColor: Colors.pinkAccent,
                   elevation: 9.0,
                   color: Colors.pinkAccent,
@@ -101,7 +126,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                 ),
               ),
                Padding(                
-                padding: EdgeInsets.symmetric(vertical : 16.0),
+                padding: EdgeInsets.symmetric(vertical : 20.0),
                 child: Material(
                   borderRadius: BorderRadius.circular(40.0),
                   shadowColor: Colors.red,
