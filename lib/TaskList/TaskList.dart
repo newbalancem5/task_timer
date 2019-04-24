@@ -78,43 +78,66 @@ void initState() {
             );
             var message =snapshot.data;
             return ListView.separated(
-              padding: EdgeInsets.only(top: 10,bottom: 10,right: 5,left: 5),
+              padding:
+              EdgeInsets.only(top: 10,
+              bottom: 10,
+              right: 5,
+              left: 5),
         // future = message,
         itemCount: message.length,
-        separatorBuilder: (context, index) => Divider(),
+        separatorBuilder: (context, index) => Divider(color: Colors.transparent,),
         itemBuilder: (BuildContext context, int index ){
           Message messages = message[index];
           return Container(
-            padding: EdgeInsets.only(top: 10,),
+            padding: EdgeInsets.only(top: 2,),
             decoration: BoxDecoration(
               border: Border.all(
                 color: Colors.black,
                 width: 3.0,
               ),
-              color: Colors.cyan[100],
+              color: Colors.grey[100],
               borderRadius: BorderRadius.circular(30)
 
             ),
             child: ListTile(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         leading: Container(
-          padding: EdgeInsets.only(right: 12.0),
+          padding: EdgeInsets.only(
+            right: 12.0,
+            top: 7.0,
+            ),
           decoration: new BoxDecoration(
               border: new Border(
-                  right: new BorderSide(width: 1.0, color: Colors.black))),
-          child: Icon(Icons.autorenew, color: Colors.pink),
+                  right: new BorderSide(width: 2.0,
+                  color: Colors.red))),
+          child: Icon(
+          Icons.timer,
+          color: Colors.pink),
         ),
-        title: Text(
+      
+        title:
+        Text(
           messages.subject,
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          textAlign:TextAlign.center,
+          style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 18),
         ),
-        // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
-
-        subtitle: Row(
-          children: <Widget>[
-            Icon(Icons.linear_scale, color: Colors.yellowAccent),
-            Text(messages.body, style: TextStyle(color: Colors.black))
-          ],
+        subtitle: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(width: 2.0,
+              color: Colors.redAccent)
+            
+            )
+          ),
+          child:
+            
+            Text(messages.body,
+             style: TextStyle(color: Colors.black,
+             fontSize: 17,
+             fontWeight: FontWeight.normal))
         ),
          onTap: (){
                 Navigator.push(
@@ -124,37 +147,8 @@ void initState() {
                     TaskInfo(messages.subject, messages.body),),);
               },
         trailing:
-Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0)),
+            Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0)),
           );        
-        //  ListTile(   
-        //     contentPadding: EdgeInsets.symmetric(
-        //       horizontal: 10.0,
-        //       vertical: 1.0,              
-        //     ),   
-        //     title: Text(messages.subject),
-        //     isThreeLine: true,            
-        //     leading: CircleAvatar(
-        //       child: Text('AM',
-        //       style: TextStyle(
-        //         color: Colors.white
-        //       ),),
-        //       backgroundColor: Colors.pinkAccent,
-        //     ),
-        //     subtitle: Text(
-        //       messages.body,
-        //       style: TextStyle(
-        //         color: Colors.black,
-        //       ),
-        //       ),
-        //       onTap: (){
-        //         Navigator.push(
-        //           context,
-        //           MaterialPageRoute(
-        //             builder: (BuildContext context) => 
-        //             TaskInfo(messages.subject, messages.body),),);
-        //       },
-        //   );
-        //   return listTile;
             },);
           }
         }),
