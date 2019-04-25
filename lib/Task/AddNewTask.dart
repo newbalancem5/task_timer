@@ -40,12 +40,13 @@ class _AddNewTaskState extends State<AddNewTask> {
       ),
        body: 
        SingleChildScrollView( 
-         padding: EdgeInsets.only(top: 100),        
+         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        //  padding: EdgeInsets.only(top: 100),        
          child: Form(        
            child: Column(            
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
-             Padding(                
+             Container(                
                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
                child: Material(
                     elevation: 11.0,
@@ -58,15 +59,16 @@ class _AddNewTaskState extends State<AddNewTask> {
                       decoration: 
                       InputDecoration(                        
                         labelText: 'Имя задания',
-                        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-                        border: InputBorder.none
-                        
+                        contentPadding: EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                        vertical: 12.0),
+                        border: InputBorder.none                        
                       ),
                     ),
                 ),   
                 ),          
-             Padding( 
-             padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+             Container( 
+                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
                     child:  Material(
                     elevation: 15.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -84,8 +86,8 @@ class _AddNewTaskState extends State<AddNewTask> {
                     ),
                 ),
              ),
-               Padding( 
-               padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+               Container( 
+                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
                 child:  Material(
                     elevation: 15.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -102,16 +104,18 @@ class _AddNewTaskState extends State<AddNewTask> {
                       ),
                     ),
                 ),),
-               Padding( 
-               padding: EdgeInsets.only(top: 100,),
-               
+              Wrap(
+                
+                children: <Widget>[
+                   Container(          
+                        
                 child:  Material(
                   borderRadius: BorderRadius.circular(100.0),
                   shadowColor: Colors.pinkAccent,
-                  elevation: 9.0,
-                  color: Colors.pinkAccent,
+                  elevation: 7.0,
+                  color: Colors.pink[50],
                   child: MaterialButton(
-                    minWidth:240.0,
+                    minWidth:160.0,
                     height: 50.0,
                     onPressed: (){
                       _bottomSheedPressed();
@@ -124,17 +128,56 @@ class _AddNewTaskState extends State<AddNewTask> {
                     ),
                   ),
                 ),
-              ),
-               Padding(                
-                padding: EdgeInsets.symmetric(vertical : 20.0),
+              ), 
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 13),
+                    child: Material(
+                      borderRadius: BorderRadius.circular(60),
+                      color: Colors.transparent,
+                      child: Container(
+                        child: Chip(
+                          label: Icon(Icons.timer),
+                          backgroundColor: Colors.transparent,
+                          labelStyle: TextStyle(
+                            color: Colors.red,
+                          ),                          
+                        ),
+                      ),
+                    )
+                  ),
+                  Container(
+                     child: Material(
+                      borderRadius: BorderRadius.circular(60),
+                      color: Colors.transparent,
+                      child: Container(
+                        child: Chip(
+                          label: Text('time'),
+                          backgroundColor: Colors.transparent,
+                          labelStyle: TextStyle(
+                            color: Colors.red,
+                            fontSize: 40
+                          ),                          
+                        ),
+                      ),
+                    )
+                  ),
+                  
+                ],
+              )            
+           ],
+           ),           
+       ),
+        ),
+        bottomNavigationBar: Container(                
+                padding: EdgeInsets.symmetric(vertical : 10.0, horizontal: 10.0),
                 child: Material(
-                  borderRadius: BorderRadius.circular(40.0),
+                  borderRadius: BorderRadius.circular(20.0),
                   shadowColor: Colors.red,
                   elevation: 6.0,
                   color: Colors.red,
                   child: MaterialButton(                    
-                    minWidth: 220.0,
-                    height: 50.0,
+                    minWidth: 400.0,
+                    height: 60.0,
                             onPressed: (){
                     this.key.currentState.save();
                     Message message = Message(subject,body);
@@ -149,11 +192,7 @@ class _AddNewTaskState extends State<AddNewTask> {
                   ),
                   ),
                 ),
-              ),
-           ],
-           ),
-       ), 
-        ),
+              ),              
     );
   }
 
