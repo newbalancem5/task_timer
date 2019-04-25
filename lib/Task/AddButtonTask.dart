@@ -31,7 +31,7 @@ class AddButtonTask extends StatelessWidget {
           }
         },     
         tooltip: 'Increment',
-        backgroundColor: Colors.redAccent,      
+        backgroundColor: Colors.red[300],      
     );
 
   }
