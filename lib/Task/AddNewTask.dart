@@ -146,9 +146,15 @@ class _AddNewTaskState extends State<AddNewTask> {
                     )
                   ),
                   Container(
-                     child: Material(
-                      borderRadius: BorderRadius.circular(60),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
                       color: Colors.transparent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                     child: Material(                      
                       child: Container(
                         child: Chip(
                           label: Text('time'),
