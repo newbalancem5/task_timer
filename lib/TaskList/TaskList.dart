@@ -152,7 +152,24 @@ void initState() {
             },);
           }
         }),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: AddButtonTask(message),
+          bottomNavigationBar: BottomAppBar(
+           child: Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             mainAxisSize: MainAxisSize.max,
+             children: <Widget>[
+               IconButton(
+                 icon: Icon(Icons.menu),
+                 onPressed: (){},
+               ),
+               IconButton(
+                 icon: Icon(Icons.track_changes),
+                 onPressed: (){},
+               )
+             ],
+           ),
+          ),
           );
   }
   }
