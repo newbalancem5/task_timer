@@ -11,21 +11,8 @@ class _AddNewTaskState extends State<AddNewTask> {
   String subject = "";
   String body = "";
   String timertime = "";
-  // int _counter = 0;
 
-  final key = GlobalKey<FormState>();
- 
-//  void _addTime(){
-//    setState(() {
-//     _counter++; 
-//    });
-//  }
-//  void _deleteTime(){
-//    setState(() {
-//     _counter--; 
-//    });
-//  }
-
+final key = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +29,8 @@ class _AddNewTaskState extends State<AddNewTask> {
        SingleChildScrollView( 
          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         //  padding: EdgeInsets.only(top: 100),        
-         child: Form(        
+         child: Form(  
+           key: key,      
            child: Column(            
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
@@ -151,13 +139,14 @@ class _AddNewTaskState extends State<AddNewTask> {
                       color: Colors.transparent,
                       border: Border.all(
                         color: Colors.black,
-                        width: 1,
+                        width: 0.3,
                       ),
                     ),
-                     child: Material(                      
+                     child: Material(
+                       borderRadius: BorderRadius.circular(10),
                       child: Container(
                         child: Chip(
-                          label: Text('time'),
+                          label: Text('Time'),
                           backgroundColor: Colors.transparent,
                           labelStyle: TextStyle(
                             color: Colors.red,
@@ -247,4 +236,4 @@ class _AddNewTaskState extends State<AddNewTask> {
           );
    });
 }
-  }
+}
