@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newba/TaskList/TaskList.dart';
+// import 'package:newba/TaskList/TaskList.dart';
 
 
 
@@ -54,24 +54,43 @@ TaskInfo(this.title, this.body);
                   style:TextStyle(
                     color: Colors.white,
                     fontSize: 18
-                  )))
+                  ))),
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    padding: EdgeInsets.only(
+                      top: 60
+                    ),
+                    child: Material(
+                      borderRadius: BorderRadius.circular(500),
+                      color: Colors.red,
+                      child: MaterialButton(
+                        height: 110,
+                        minWidth: 110,
+                        child: Text('Начать',
+                        style: TextStyle(
+                          color:Colors.white,
+                          fontSize: 19,
+                        )),
+                        onPressed: (){
+                        },
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              
             ),
-            Row(
-              children: <Widget>[
-                 Container(
-              width: 100,
-              height: 1,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(360),
-                color: Colors.tealAccent
-              ),
-              child: Text('data'),
-            ),           
-              ],
-            )
+          
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 60),
+            child: Material(
+              borderRadius: BorderRadius.circular(50),
+              child: Text('18:00',
+              style: TextStyle(
+                fontSize: 40,
+                fontStyle: FontStyle.italic
+              ),),
+            ),
+          )
           ],
         ),
       ),
@@ -86,7 +105,5 @@ TaskInfo(this.title, this.body);
       //     ),
     backgroundColor: Colors.white,
      );
-    
-   
   }
 }
