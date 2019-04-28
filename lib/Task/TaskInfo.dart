@@ -20,11 +20,12 @@ TaskInfo(this.title, this.body);
       elevation: 0.0,),
       body:  
       Container(
-        child: Column(
+        height: 420,
+        child: Stack(
           children: <Widget>[
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/2.5,
+              // width: MediaQuery.of(context).size.width,
+              // // height: MediaQuery.of(context).size.height/2.5,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -80,17 +81,17 @@ TaskInfo(this.title, this.body);
               ),
             ),
           
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 60),
-            child: Material(
-              borderRadius: BorderRadius.circular(50),
-              child: Text('18:00',
-              style: TextStyle(
-                fontSize: 40,
-                fontStyle: FontStyle.italic
-              ),),
-            ),
-          )
+          // Container(
+          //   padding: EdgeInsets.symmetric(vertical: 60),
+          //   child: Material(
+          //     borderRadius: BorderRadius.circular(50),
+          //     child: Text('18:00',
+          //     style: TextStyle(
+          //       fontSize: 40,
+          //       fontStyle: FontStyle.italic
+          //     ),),
+          //   ),
+          // )
           ],
         ),
       ),
