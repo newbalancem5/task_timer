@@ -15,7 +15,7 @@ TaskInfoBody(this.title, this.body);
       height: 420.0,
       child: Stack(
         children: <Widget>[
-          ClipPath(
+          ClipPath( 
             child: Container(
               height: 370.0,
               decoration: BoxDecoration(color: Colors.white, boxShadow: [

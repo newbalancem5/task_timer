@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newba/Task/InfoContainer.dart';
-import 'package:newba/Task/infoContainerBottom.dart';
+import 'package:newba/TaskInfo/InfoContainer.dart';
+import 'package:newba/TaskInfo/infoContainerBottom.dart';
 // import 'package:newba/TaskList/TaskList.dart';
 
 

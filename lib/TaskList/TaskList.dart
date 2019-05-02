@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newba/Task/AddButtonTask.dart';
 import 'package:newba/Message/Message.dart';
-import 'package:newba/Task/TaskInfo.dart';
+import 'package:newba/TaskInfo/TaskInfo.dart';
 //import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -73,7 +73,8 @@ void initState() {
                 ),
                 Container(
                   child: Text('Упс......'),
-                )
+                ),
+                
               ],
             );
             var message =snapshot.data;
