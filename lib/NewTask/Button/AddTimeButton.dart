@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newba/SheetButton/showModalBottomSheet.dart';
 
 
 
@@ -19,43 +20,8 @@ class AddTimeButton extends StatelessWidget {
     context: context,
     builder: (BuildContext context) {      
     return Container(
-            decoration: BoxDecoration(
-              color: Colors.white,              
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(45)                
-              )
-            ),
-            height: 300,             
-            child: Column(                            
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                     padding: EdgeInsets.only(left: 16, right: 16, bottom: 180),
-                     child: Title(
-                       child: Text('Выберите время для задачи',
-                    style: TextStyle(
-                      fontSize: 25,
-                    ),),
-                    color: Colors.black,
-                     ),
-                  ),
-                  Material(
-                    borderRadius: BorderRadius.circular(40.0),
-                    shadowColor: Colors.red,
-                    elevation: 6.0,
-                    color: Colors.red,
-                  
-                    child: MaterialButton(                    
-                      child: Text('добавить время',
-                      style:TextStyle(
-                        color: Colors.white
-                      ) ,),
-                      onPressed: (){},
-                    ),
-                  )
-                ],
-            ),
-          );
+      child: SheetModal(),
+    );
    });
                     },
                     child: Text('Добавить таймер',
