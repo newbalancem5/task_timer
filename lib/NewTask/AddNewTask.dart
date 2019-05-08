@@ -17,7 +17,7 @@ class _AddNewTaskState extends State<AddNewTask> {
 final key = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext model) {
     return Scaffold( 
       backgroundColor: Colors.white,     
       appBar: AppBar(
@@ -98,7 +98,7 @@ final key = GlobalKey<FormState>();
                 
                 children: <Widget>[
                    Container(          
-                       child: AddTimeButton()
+                       child: AddTimeButton(model)
                 
               ), 
                   Container(
