@@ -15,7 +15,7 @@ class Application extends StatefulWidget {
 
 class _ApplicationState extends State<Application> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext model) {
     
     return MaterialApp(
       theme: ThemeData(
