@@ -4,6 +4,8 @@ import 'package:newba/SheetButton/showModalBottomSheet.dart';
 
 
 class AddTimeButton extends StatelessWidget {
+  AddTimeButton(model);
+
   @override
   Widget build(BuildContext context) {
     return Container(
