@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:newba/Timer/TimerCount.dart';
 
-
+TimerCountModel temerCountModel = TimerCountModel();
 class SheetModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,9 @@ class SheetModal extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         RawMaterialButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            // model.decrement();
+                          },
                           child: Icon(FontAwesomeIcons.minus, 
                           color: Colors.red,
                           size: 30,),
@@ -42,7 +45,7 @@ class SheetModal extends StatelessWidget {
                           padding: const EdgeInsets.all(10.0),
                         ),
                         Text(
-                          '\u0024 50',
+                          '\u0024 50 ',
                           style: TextStyle(fontSize: 34,
                           color: Colors.black),
                         ),
@@ -69,7 +72,9 @@ class SheetModal extends StatelessWidget {
                       style:TextStyle(
                         color: Colors.white
                       ) ,),
-                      onPressed: (){},
+                      onPressed: (){
+                        // model.increment();
+                      },
                     ),
                   )
                 ],
