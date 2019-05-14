@@ -14,7 +14,7 @@ class SheetModal extends StatelessWidget {
                 top: Radius.circular(45)                
               )
             ),
-            height: 300,             
+            height: 300,           
             child: Column(                            
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
