@@ -62,7 +62,7 @@ TaskInfoBody(this.title, this.body);
                                 fontFamily: "SF-Pro-Display-Bold"),
                           ),
                            Text(
-                            'text',
+                            'this.to',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 45.0,
@@ -89,7 +89,8 @@ TaskInfoBody(this.title, this.body);
                   ClipRRect(
                     borderRadius: BorderRadius.circular(30.0),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () => {}
+                      ,
                       color: Color(0xFFE52020),
                       padding: EdgeInsets.symmetric(
                           vertical: 20.0, horizontal: 80.0),
