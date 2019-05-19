@@ -16,7 +16,7 @@ class TaskList extends StatefulWidget {
 class _TaskListState extends State<TaskList> {
 
 Future<List<Message>> future;
-List<Message> message;
+List<Message> message = [];
 
 bool isLoading =true;
 
@@ -52,8 +52,7 @@ void initState() {
         backgroundColor: Colors.transparent, 
         elevation: 0.0,        
       ),      
-      body:
-      
+      body:      
        FutureBuilder(
         future: future,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -89,66 +88,69 @@ void initState() {
         separatorBuilder: (context, index) => Divider(color: Colors.transparent,),
         itemBuilder: (BuildContext context, int index ){
           Message messages = message[index];
-          return Container(
-            padding: EdgeInsets.only(top: 2,),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: 3.0,
-              ),
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(30)
+          return Dismissible(
+                      child: Container(
+              padding: EdgeInsets.only(top: 2,),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3.0,
+                ),
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(30)
 
-            ),
-            child: ListTile(
+              ),
+              child: ListTile(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         leading: Container(
-          padding: EdgeInsets.only(
-            right: 12.0,
-            top: 7.0,
-            ),
-          decoration: new BoxDecoration(
-              border: new Border(
-                  right: new BorderSide(width: 2.0,
-                  color: Colors.red))),
-          child: Icon(
-          Icons.timer,
-          color: Colors.pink),
+            padding: EdgeInsets.only(
+              right: 12.0,
+              top: 7.0,
+              ),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 2.0,
+                    color: Colors.red))),
+            child: Icon(
+            Icons.timer,
+            color: Colors.pink),
         ),
       
         title:
         Text(
-          messages.subject,
-          textAlign:TextAlign.center,
-          style: TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          fontSize: 18),
+            messages.subject,
+            textAlign:TextAlign.center,
+            style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 18),
         ),
         subtitle: Container(
-          decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(width: 2.0,
-              color: Colors.redAccent)
-            
-            )
-          ),
-          child:
-            
-            Text(messages.body,
-             style: TextStyle(color: Colors.black,
-             fontSize: 17,
-             fontWeight: FontWeight.normal))
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(width: 2.0,
+                color: Colors.redAccent)
+              
+              )
+            ),
+            child:
+              
+              Text(messages.body,
+               style: TextStyle(color: Colors.black,
+               fontSize: 17,
+               fontWeight: FontWeight.normal))
         ),
          onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => 
-                    TaskInfo(messages.subject, messages.body),),);
-              },
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => 
+                      TaskInfo (messages.subject, messages.body),),);
+                },
         trailing:
-            Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0)),
+              Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0)),
+            ), 
+            key: Key(messages.body), 
           );        
             },);
           }
