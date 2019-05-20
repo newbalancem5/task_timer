@@ -16,7 +16,7 @@ class TaskList extends StatefulWidget {
 class _TaskListState extends State<TaskList> {
 
 Future<List<Message>> future;
-List<Message> message = [];
+List<Message> message;
 
 bool isLoading =true;
 
@@ -41,9 +41,8 @@ void initState() {
         actions: <Widget>[
           IconButton(icon: Icon(Icons.refresh,),          
           onPressed: () async {
-            var _message = await Message.browse();
             setState(() {
-             message = _message; 
+              future = Message.browse();
             });
           },
           color: Colors.black, )
@@ -85,10 +84,19 @@ void initState() {
               left: 5),
         // future = message,
         itemCount: message.length,
-        separatorBuilder: (context, index) => Divider(color: Colors.transparent,),
+        separatorBuilder: (context, index) => Divider(color: Colors.transparent),
         itemBuilder: (BuildContext context, int index ){
           Message messages = message[index];
           return Dismissible(
+            // direction: message,
+            onDismissed: (direction){
+              setState(() {
+                  message.removeAt(message);
+              });
+            },
+            background: Container(
+              color: Colors.red,
+            ),
                       child: Container(
               padding: EdgeInsets.only(top: 2,),
               decoration: BoxDecoration(
@@ -133,8 +141,7 @@ void initState() {
               
               )
             ),
-            child:
-              
+            child:              
               Text(messages.body,
                style: TextStyle(color: Colors.black,
                fontSize: 17,
@@ -150,7 +157,7 @@ void initState() {
         trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0)),
             ), 
-            key: Key(messages.body), 
+            key: ObjectKey(message),
           );        
             },);
           }
