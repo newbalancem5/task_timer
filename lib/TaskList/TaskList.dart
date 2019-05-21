@@ -16,7 +16,7 @@ class TaskList extends StatefulWidget {
 class _TaskListState extends State<TaskList> {
 
 Future<List<Message>> future;
-List<Message> message;
+List<Message> message ;
 
 bool isLoading =true;
 
@@ -85,7 +85,7 @@ void initState() {
         // future = message,
         itemCount: message.length,
         separatorBuilder: (context, index) => Divider(color: Colors.transparent),
-        itemBuilder: (BuildContext context, int index ){
+        itemBuilder: (BuildContext context,int index ){
           Message messages = message[index];
           return Dismissible(
             // direction: message,
