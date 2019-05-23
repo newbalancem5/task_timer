@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newba/TaskList/TaskList.dart';
+import 'package:newba/Theme/ThemeApp.dart';
+import 'package:provider/provider.dart';
 // import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -17,12 +20,9 @@ class _ApplicationState extends State<Application> {
   @override
   Widget build(BuildContext model) {
     
-    return MaterialApp(
-      theme: ThemeData(
-        canvasColor: Colors.transparent
-      ),
-      title: 'Задачи',
-      home: TaskList(),
+    return ChangeNotifierProvider<AppThemeChanger>(
+      builder: (_) => AppThemeChanger(ThemeData.transparent()),
+          child: new MaterialAppWithTheme(),
     );
   }
 //   void _openAddEntryDialog() {
@@ -33,4 +33,16 @@ class _ApplicationState extends State<Application> {
 //     fullscreenDialog: true
 //   
 
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<AppThemeChanger>(context);
+    return MaterialApp(
+        theme: theme.getTheme( ),
+        title: 'Задачи',
+        home: TaskList(),
+      );
+  }
 }
