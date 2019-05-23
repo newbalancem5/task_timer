@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:newba/NewTask/AddTask.dart';
 import 'package:newba/Message/Message.dart';
 import 'package:newba/TaskInfo/TaskInfo.dart';
+import 'package:newba/Theme/ThemeApp.dart';
+import 'package:provider/provider.dart';
 //import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -14,6 +16,7 @@ class TaskList extends StatefulWidget {
   _TaskListState createState() => new _TaskListState();
 }
 class _TaskListState extends State<TaskList> {
+  
 
 Future<List<Message>> future;
 List<Message> message ;
@@ -30,15 +33,52 @@ void initState() {
     message = await future;
   }
   Widget build(BuildContext context) {
+    AppThemeChanger _themeChanger = Provider.of<AppThemeChanger>(context);
     return new Scaffold(
       backgroundColor: Colors.white,
       appBar: new AppBar(
         title: new Text('Задачи',
         style:TextStyle(color: Colors.red,
         fontFamily: "Nexa"
-        ),
+        ), 
         ),
         actions: <Widget>[
+          DropdownButton(            
+            onChanged: (AppThemeChanger){},
+            icon: Icon(Icons.brightness_5),
+            iconEnabledColor: Colors.red,
+            iconDisabledColor: Colors.yellow,
+            items: [
+              DropdownMenuItem(
+                value: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FlatButton(
+                      child: Icon(Icons.brightness_5),
+                      onPressed:  () => _themeChanger.setTheme(ThemeData.transparent()),
+                      
+                    )
+                    
+                  ],
+                ),
+                
+              ),
+              DropdownMenuItem(
+                value: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // Icon(Icons.brightness_2),
+                    FlatButton(
+                      child: Icon(Icons.brightness_2),
+                      onPressed: () => _themeChanger.setTheme(ThemeData.dark()),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
           IconButton(icon: Icon(Icons.refresh,),          
           onPressed: () async {
             setState(() {
