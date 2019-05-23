@@ -2,11 +2,28 @@ import 'package:flutter/material.dart';
 
 
 
-class TaskInfoBottom extends StatelessWidget {
-// void _timerContainer(BuildContext context) {
+class TaskInfoBottom extends StatefulWidget {
+  @override
+  _TaskInfoBottomState createState() => _TaskInfoBottomState();
+}
 
-// }
-  
+class _TaskInfoBottomState extends State<TaskInfoBottom> {
+  AnimationController animationController;
+
+//  String get timerString {
+//     Duration duration =
+//         animationController.duration * animationController.value;
+//     return '${duration.inMinutes}:${(duration.inSeconds % 60)
+//         .toString()
+//         .padLeft(2, '0')}';
+//   }
+//     @override
+//   void initState() {
+//     super.initState();
+//     animationController =
+//         AnimationController(vsync: this, duration: Duration(seconds: 5));
+//   }
+
   @override
   Widget build(BuildContext context) {
    return new Container(
