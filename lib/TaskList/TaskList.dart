@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newba/NewTask/AddTask.dart';
 import 'package:newba/Message/Message.dart';
 import 'package:newba/TaskInfo/TaskInfo.dart';
-import 'package:newba/Theme/ThemeApp.dart';
-import 'package:provider/provider.dart';
+import 'package:newba/TaskList/BottomAppBarTaskList.dart';
 //import 'NewTask.dart';
 //import 'TaskTimer.dart';
 
@@ -33,7 +32,6 @@ void initState() {
     message = await future;
   }
   Widget build(BuildContext context) {
-    AppThemeChanger _themeChanger = Provider.of<AppThemeChanger>(context);
     return new Scaffold(
       backgroundColor: Colors.white,
       appBar: new AppBar(
@@ -43,42 +41,6 @@ void initState() {
         ), 
         ),
         actions: <Widget>[
-          DropdownButton(            
-            onChanged: (AppThemeChanger){},
-            icon: Icon(Icons.brightness_5),
-            iconEnabledColor: Colors.red,
-            iconDisabledColor: Colors.yellow,
-            items: [
-              DropdownMenuItem(
-                value: 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    FlatButton(
-                      child: Icon(Icons.brightness_5),
-                      onPressed:  () => _themeChanger.setTheme(ThemeData.transparent()),
-                      
-                    )
-                    
-                  ],
-                ),
-                
-              ),
-              DropdownMenuItem(
-                value: 2,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    // Icon(Icons.brightness_2),
-                    FlatButton(
-                      child: Icon(Icons.brightness_2),
-                      onPressed: () => _themeChanger.setTheme(ThemeData.dark()),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
           IconButton(icon: Icon(Icons.refresh,),          
           onPressed: () async {
             setState(() {
@@ -115,7 +77,7 @@ void initState() {
                 
               ],
             );
-            var message =snapshot.data;
+            var message = snapshot.data;
             return ListView.separated(
               padding:
               EdgeInsets.only(top: 10,
@@ -162,8 +124,7 @@ void initState() {
             child: Icon(
             Icons.timer,
             color: Colors.pink),
-        ),
-      
+        ),      
         title:
         Text(
             messages.subject,
@@ -205,22 +166,7 @@ void initState() {
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: AddButtonTask(message),
           bottomNavigationBar: BottomAppBar(
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             mainAxisSize: MainAxisSize.max,
-             children: <Widget>[
-               IconButton(
-                 icon: Icon(Icons.menu),
-                 onPressed: (){},
-                 color: Colors.yellowAccent,
-               ),
-               IconButton(
-                 icon: Icon(Icons.track_changes),
-                 color: Colors.yellow,
-                 onPressed: (){},
-               )
-             ],
-           ),
+           child: BottomBar()
           ),
           );
   }
