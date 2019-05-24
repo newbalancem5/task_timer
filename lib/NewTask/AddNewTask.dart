@@ -98,8 +98,7 @@ final key = GlobalKey<FormState>();
                 
                 children: <Widget>[
                    Container(          
-                       child: AddTimeButton(model)
-                
+                       child: AddTimeButton(model)                
               ), 
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 13),
