@@ -39,7 +39,7 @@ final key = GlobalKey<FormState>();
              Container(                
                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
                child: Material(
-                    elevation: 11.0,
+                    elevation: 4.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     color: Colors.white,
                     shadowColor: Colors.black,
@@ -60,7 +60,7 @@ final key = GlobalKey<FormState>();
              Container( 
                 padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
                     child:  Material(
-                    elevation: 15.0,
+                    elevation: 4.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     color: Colors.white,
                     shadowColor: Colors.black,
@@ -79,7 +79,7 @@ final key = GlobalKey<FormState>();
                Container( 
                 padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
                 child:  Material(
-                    elevation: 15.0,
+                    elevation: 4.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     color: Colors.white,
                     shadowColor: Colors.black,
