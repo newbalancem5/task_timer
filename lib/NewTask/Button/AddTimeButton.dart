@@ -12,7 +12,7 @@ class AddTimeButton extends StatelessWidget {
       child:  Material(
                   borderRadius: BorderRadius.circular(100.0),
                   shadowColor: Colors.pinkAccent,
-                  elevation: 7.0,
+                  elevation: 2.0,
                   color: Colors.pink[50],
                   child: MaterialButton(
                     minWidth:160.0,
