@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+class SheetModal extends StatefulWidget{
+  @override
+  _SheetModalState createState() => _SheetModalState();
+}
 
-class SheetModal extends StatelessWidget {
+class _SheetModalState extends State<SheetModal> {
+Duration initialtimer = new Duration();
+String timerTime = "";
+  // String timerTime = "";
   @override
   Widget build(BuildContext context) {
     return 
@@ -34,12 +41,16 @@ class SheetModal extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 30),
                     height: MediaQuery.of(context).copyWith().size.height / 10,
                     child: CupertinoTimerPicker(
-                      
+                      initialTimerDuration: initialtimer,
                       mode: CupertinoTimerPickerMode.hms,
                       minuteInterval: 1,
                       secondInterval: 1,
-                    onTimerDurationChanged: (Duration chanedtime){                        
+                    onTimerDurationChanged: (Duration chanedtime){
+                      setState(() {
+                       initialtimer = chanedtime; 
+                      });
                     } ,
+                    
                 ) 
                 ),
                 ),
@@ -54,7 +65,7 @@ class SheetModal extends StatelessWidget {
                     minWidth: 400.0,
                     height: 60.0,
                             onPressed: (){
-                              
+                          Navigator.pop(context);
                   },
                   child: Text('Добавить',
                   textAlign: TextAlign.center,
