@@ -15,6 +15,8 @@ class _AddNewTaskState extends State<AddNewTask> {
   String timertime = "";
 
 final key = GlobalKey<FormState>();
+Duration initialtimer = new Duration();
+  
 
   @override
   Widget build(BuildContext model) {
@@ -129,7 +131,7 @@ final key = GlobalKey<FormState>();
                        borderRadius: BorderRadius.circular(10),
                       child: Container(
                         child: Chip(
-                          label: Text('Time'),
+                          label: Text('${initialtimer.inMinutes}'),
                           backgroundColor: Colors.transparent,
                           labelStyle: TextStyle(
                             color: Colors.red,
@@ -139,7 +141,6 @@ final key = GlobalKey<FormState>();
                       ),
                     )
                   ),
-                  
                 ],
               )            
            ],
