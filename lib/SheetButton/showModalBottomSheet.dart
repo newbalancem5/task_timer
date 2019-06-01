@@ -36,7 +36,7 @@ String timerTime = "";
                      ),
                   ),
                   Container(
-                    child: Text(' ${initialtimer.inMinutes}+${initialtimer.inMinutes}'),
+                    child: Text(' $initialtimer'),
                   ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 20),
@@ -45,6 +45,7 @@ String timerTime = "";
                     height: MediaQuery.of(context).copyWith().size.height / 10,
                     child: CupertinoTimerPicker(
                       // onTimerDurationChanged : initialtimer,
+                      initialTimerDuration: Duration.zero,
                       mode: CupertinoTimerPickerMode.hms,
                       minuteInterval: 1,
                       secondInterval: 1,
@@ -52,7 +53,7 @@ String timerTime = "";
                     onTimerDurationChanged: (Duration chanedtime){
                       setState(() {
                        initialtimer = chanedtime; 
-                       print(initialtimer.inHours);
+                       print(initialtimer);
                       });
                     } ,
                     
@@ -74,9 +75,7 @@ String timerTime = "";
                              setState(() {
                               // _initialtimer(initialtimer.inHours); 
                              });
-                           }
-                             
-                           ,
+                           },
                   child: Text('Добавить',
                   textAlign: TextAlign.center,
                   style: TextStyle(
