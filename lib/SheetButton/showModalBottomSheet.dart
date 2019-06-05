@@ -50,9 +50,9 @@ String timerTime = "";
                       minuteInterval: 1,
                       secondInterval: 1,
                       
-                    onTimerDurationChanged: (Duration chanedtime){
+                    onTimerDurationChanged: (Duration changedtime){
                       setState(() {
-                       initialtimer = chanedtime; 
+                       initialtimer = changedtime; 
                        print(initialtimer);
                       });
                     } ,
