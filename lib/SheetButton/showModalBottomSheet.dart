@@ -7,7 +7,7 @@ class SheetModal extends StatefulWidget{
 }
 
 class _SheetModalState extends State<SheetModal> {
-Duration initialtimer = new Duration();
+Duration initialtimer =  Duration();
 String timerTime = "";
   // String timerTime = "";
   @override
@@ -44,18 +44,21 @@ String timerTime = "";
                     padding: EdgeInsets.only(bottom: 30),
                     height: MediaQuery.of(context).copyWith().size.height / 10,
                     child: CupertinoTimerPicker(
-                      // onTimerDurationChanged : initialtimer,
-                      initialTimerDuration: Duration.zero,
+                      onTimerDurationChanged : (Duration changetime){
+                        initialtimer = changetime;
+                        print(initialtimer);
+                      },
+                      // initialTimerDuration: Duration.zero,
                       mode: CupertinoTimerPickerMode.hms,
                       minuteInterval: 1,
                       secondInterval: 1,
                       
-                    onTimerDurationChanged: (Duration changedtime){
-                      setState(() {
-                       initialtimer = changedtime; 
-                       print(initialtimer);
-                      });
-                    } ,
+                    // onTimerDurationChanged: (Duration changedtime){
+                    //   setState(() {
+                    //    initialtimer = changedtime; 
+                    //    print(initialtimer);
+                    //   });
+                    // } ,
                     
                     
                 ) 
