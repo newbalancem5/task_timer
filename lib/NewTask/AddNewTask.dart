@@ -103,7 +103,7 @@ Duration initialtimer = new Duration();
                        child: AddTimeButton(model)                
               ), 
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 13),
+                    padding: EdgeInsets.symmetric(horizontal: 42),
                     child: Material(
                       borderRadius: BorderRadius.circular(60),
                       color: Colors.transparent,
