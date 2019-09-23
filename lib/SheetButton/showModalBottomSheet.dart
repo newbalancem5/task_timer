@@ -7,7 +7,7 @@ class SheetModal extends StatefulWidget{
 }
 
 class _SheetModalState extends State<SheetModal> {
-Duration initialtimer = new Duration(seconds: 0);
+Duration initialtimer = new Duration() ;
 String timerTime = "";
   // String timerTime = "";
   @override
@@ -54,7 +54,7 @@ String timerTime = "";
                     onTimerDurationChanged: (Duration changedtime){
                       setState(() {
                        initialtimer = changedtime; 
-                       print(initialtimer);
+                      //  print(initialtimer);
                       });
                     } ,
                     
@@ -72,11 +72,9 @@ String timerTime = "";
                   child: MaterialButton(                    
                     minWidth: 400.0,
                     height: 60.0,
-                           onPressed: () {
-                             setState(() {
-                              // _initialtimer(initialtimer.inHours); 
-                             });
-                           },
+                                  onPressed: (){
+                          // print(initialtimer);
+                  },
                   child: Text('Добавить',
                   textAlign: TextAlign.center,
                   style: TextStyle(

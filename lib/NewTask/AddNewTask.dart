@@ -131,7 +131,7 @@ Duration initialtimer = new Duration();
                        borderRadius: BorderRadius.circular(10),
                       child: Container(
                         child: Chip(
-                          label: Text('${initialtimer.inMinutes}'),
+                          label: Text('$initialtimer'),
                           backgroundColor: Colors.transparent,
                           labelStyle: TextStyle(
                             color: Colors.red,
