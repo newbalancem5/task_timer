@@ -69,12 +69,10 @@ String timerTime = "";
                   shadowColor: Colors.red,
                   elevation: 6.0,
                   color: Colors.red,
-                  child: MaterialButton(                    
+                  child: MaterialButton(
+                    onPressed: (){},
                     minWidth: 400.0,
                     height: 60.0,
-                                  onPressed: (){
-                          // print(initialtimer);
-                  },
                   child: Text('Добавить',
                   textAlign: TextAlign.center,
                   style: TextStyle(
