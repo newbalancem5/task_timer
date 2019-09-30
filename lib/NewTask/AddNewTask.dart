@@ -26,12 +26,12 @@ Duration initialtimer = new Duration();
        title:Text("Создание новой задачи",
       style:TextStyle(color: Colors.redAccent),),
       centerTitle: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       elevation: 0.4,
       ),
        body: 
        SingleChildScrollView( 
-         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+         padding: EdgeInsets.symmetric( vertical: 10),
         //  padding: EdgeInsets.only(top: 100),        
          child: Form(  
            key: key,      
@@ -39,7 +39,7 @@ Duration initialtimer = new Duration();
          crossAxisAlignment: CrossAxisAlignment.center,           
            children: <Widget>[
              Container(                
-               padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+               padding: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                child: Material(
                     elevation: 4.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -60,7 +60,7 @@ Duration initialtimer = new Duration();
                 ),   
                 ),          
              Container( 
-                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                     child:  Material(
                     elevation: 4.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -79,7 +79,7 @@ Duration initialtimer = new Duration();
                 ),
              ),
                Container( 
-                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                 child:  Material(
                     elevation: 4.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -99,7 +99,8 @@ Duration initialtimer = new Duration();
               Wrap(
                 
                 children: <Widget>[
-                   Container(          
+                   Container(      
+                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),    
                        child: AddTimeButton(model)                
               ), 
                   Container(
@@ -118,29 +119,29 @@ Duration initialtimer = new Duration();
                       ),
                     )
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 0.3,
-                      ),
-                    ),
-                     child: Material(
-                       borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        child: Chip(
-                          label: Text('$initialtimer'),
-                          backgroundColor: Colors.transparent,
-                          labelStyle: TextStyle(
-                            color: Colors.red,
-                            fontSize: 40
-                          ),                          
-                        ),
-                      ),
-                    )
-                  ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(10),
+                  //     color: Colors.transparent,
+                  //     border: Border.all(
+                  //       color: Colors.black,
+                  //       width: 0.3,
+                  //     ),
+                  //   ),
+                  //    child: Material(
+                  //      borderRadius: BorderRadius.circular(10),
+                  //     child: Container(
+                  //       child: Chip(
+                  //         label: Text('$initialtimer'),
+                  //         backgroundColor: Colors.transparent,
+                  //         labelStyle: TextStyle(
+                  //           color: Colors.red,
+                  //           fontSize: 40
+                  //         ),                          
+                  //       ),
+                  //     ),
+                  //   )
+                  // ),
                 ],
               )            
            ],
