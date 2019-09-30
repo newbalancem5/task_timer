@@ -50,7 +50,6 @@ String timerTime = "";
                       mode: CupertinoTimerPickerMode.hms,
                       // minuteInterval: 1,
                       // secondInterval: 1,
-
                     onTimerDurationChanged: (Duration changedtime){
                       setState(() {
                        initialtimer = changedtime; 

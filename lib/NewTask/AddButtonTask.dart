@@ -24,7 +24,7 @@ class AddButtonTask extends StatelessWidget {
           
             Scaffold.of(context).showSnackBar(
             SnackBar(
-              content: Text("Your message has been sent"),
+              content: Text("Таймер добавлен"),
               backgroundColor: Colors.green,
               ),
             );
