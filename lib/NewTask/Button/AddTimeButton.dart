@@ -9,7 +9,7 @@ class AddTimeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 80),
+      padding: EdgeInsets.only(right: 210),
       child:  Material(
                   borderRadius: BorderRadius.circular(10.0),
                   shadowColor: Colors.pinkAccent,

@@ -103,22 +103,22 @@ Duration initialtimer = new Duration();
                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),    
                        child: AddTimeButton(model)                
               ), 
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 42),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(60),
-                      color: Colors.transparent,
-                      child: Container(
-                        child: Chip(
-                          label: Icon(Icons.timer),
-                          backgroundColor: Colors.transparent,
-                          labelStyle: TextStyle(
-                            color: Colors.red,
-                          ),                          
-                        ),
-                      ),
-                    )
-                  ),
+                  // Container(
+                  //   padding: EdgeInsets.symmetric(horizontal: 42),
+                  //   child: Material(
+                  //     borderRadius: BorderRadius.circular(60),
+                  //     color: Colors.transparent,
+                  //     child: Container(
+                  //       child: Chip(
+                  //         label: Icon(Icons.timer),
+                  //         backgroundColor: Colors.transparent,
+                  //         labelStyle: TextStyle(
+                  //           color: Colors.red,
+                  //         ),                          
+                  //       ),
+                  //     ),
+                  //   )
+                  // ),
                   // Container(
                   //   decoration: BoxDecoration(
                   //     borderRadius: BorderRadius.circular(10),
