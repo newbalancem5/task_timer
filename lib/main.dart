@@ -21,7 +21,7 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext model) {
     
     return ChangeNotifierProvider<AppThemeChanger>(
-      builder: (_) => AppThemeChanger(ThemeData.transparent()),
+      builder: (_) => AppThemeChanger(ThemeData.dark()),
           child: new MaterialAppWithTheme(),
     );
   }

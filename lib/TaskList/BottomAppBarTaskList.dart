@@ -22,7 +22,7 @@ class BottomBar extends StatelessWidget {
                IconButton(
                  icon: Icon(Icons.brightness_5),
                  color: Colors.yellow,
-                 onPressed: () => _themeChanger.setTheme(ThemeData.transparent()),
+                 onPressed: () => _themeChanger.setTheme(ThemeData.dark()),
                )
              ],
            ),
