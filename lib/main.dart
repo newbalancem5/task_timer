@@ -12,17 +12,14 @@ void main() {
 
 class Application extends StatefulWidget {
   @override
-  
   _ApplicationState createState() => new _ApplicationState();
-  }
+}
 
 class _ApplicationState extends State<Application> {
   @override
   Widget build(BuildContext model) {
-    
     return ChangeNotifierProvider<AppThemeChanger>(
-      builder: (_) => AppThemeChanger(ThemeData.transparent()),
-          child: new MaterialAppWithTheme(),
+      child: new MaterialAppWithTheme(),
     );
   }
 //   void _openAddEntryDialog() {
@@ -31,7 +28,7 @@ class _ApplicationState extends State<Application> {
 //         return new AddEntryDialog();
 //       },
 //     fullscreenDialog: true
-//   
+//
 
 }
 
@@ -40,9 +37,9 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<AppThemeChanger>(context);
     return MaterialApp(
-        theme: theme.getTheme( ),
-        title: 'Задачи',
-        home: TaskList(),
-      );
+      theme: theme.getTheme(),
+      title: 'Задачи',
+      home: TaskList(),
+    );
   }
 }
